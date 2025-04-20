@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PATEL</title>
+
+<style>
+    .box{
+        height: 4100;
+        width: 505;
+        border: 50px solid whitesmoke;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 800px ;
+    }
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+span{
+    color: palevioletred;
+    font-size: 80px;pan{
+            
+            font-weight: bold;
+            padding: 10px;
+            margin: 5px;
+            position: relative ;
+            top: 150px;
+            left: 150px;
+        }
+        .date{
+            font-size: 30px;
+            font-weight: bold;
+            padding: 10px;
+            margin: 5px;
+            position: relative;
+            top: 250px;
+            left: -190px;
+        }
+}
+</style>
+</head>
+<body style="background-color:blueviolet;">
+    <div class ="box">
+        <span id="hh"> HH </span><span>:</span>
+        <span id="mm"> MM </span><span>:</span>
+        <span id="ss" > SS\t\t </span>
+        <span id="AMPM"></span>
+         <!-- For Date -->
+         <span id="Day" class="date">Day</span><span class="date">/</span>
+         <span id="Month"class="date">Month</span><span class="date">/</span>
+         <span id="Year"class="date">Year</span>
+
+    </div>
+    
+    
+    <script>
+        function clock(){
+        let time=new Date()
+        let hours=time.getHours()
+        let minutes=time.getMinutes()
+        let Seconds=time.getSeconds()
+        let ampm
+        if(hours>12){
+            ampm="PM"
+        }else{
+            ampm="AM"
+        }
+        if(hours>12){
+            hours=hours-12
+        }
+
+        document.getElementById('hh').innerHTML=hours.toString().padStart(2,"0")
+        document.getElementById('mm').innerHTML=minutes.toString().padStart(2,"0")
+        document.getElementById('ss').innerHTML=Seconds.toString().padStart(2,"0")
+        document.getElementById('AMPM').innerHTML=ampm
+        }
+setInterval(clock,1000)
+
+
+function date(){
+            let date= new Date();
+            let day= date.getDate();
+            let month= date.getMonth()+1; // Months are zero-based, so we add 1 to get the correct month number
+            let year= date.getFullYear();
+
+            document.getElementById("Day").innerHTML= day.toString().padStart(2, '0');
+            document.getElementById("Month").innerHTML= month.toString().padStart(2, '0');
+            document.getElementById("Year").innerHTML= year;
+
+        }
+        date(); // Call the date function once to display the date immediately
+        setInterval(date, 1000); // 1000ms = 1s
+        // setInterval is a method that calls a function at specified intervals (in milliseconds). In this case, it calls the clock function every 1000 milliseconds (1 second).
+
+// Syntax Error
+        // Reference Error
+        // Logical Error
+        const d=new Date();
+        d.setFullYear(2025); // setFullYear() method sets the year of a date object to a specified value.
+        console.log(d.getFullYear()); // 2025
+
+    </script>
+</body>
+</html>
